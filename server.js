@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 
 // Set up Express app
 const app = express();
+const PORT = process.env.PORT || 8080;
 
 // Data parsing
 app.use(morgan('dev'))
@@ -81,8 +82,8 @@ var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/pwatodod
 
 // Server listening
 mongoose.connect(MONGODB_URI)
-  .then(() => app.listen(8080, () => {
-    console.log('server on http://localhost:8080')
+  .then(() => app.listen(PORT, () => {
+    console.log('server on http://localhost:' + PORT)
   }))
   .catch(e => console.error(e))
 

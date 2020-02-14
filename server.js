@@ -77,8 +77,10 @@ app.post('/update/:id', (req, res) => {
     );
 });
 
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/pwatododb';
+
 // Server listening
-mongoose.connect('mongodb://localhost:27017/pwatododb')
+mongoose.connect(MONGODB_URI)
   .then(() => app.listen(8080, () => {
     console.log('server on http://localhost:8080')
   }))

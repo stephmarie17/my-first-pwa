@@ -48,7 +48,7 @@ app.get('/todos', (req, res) => {
 // Create a todo
 app.post('/todo', (req, res) => {
     const todoToCreate = req.body
-    Todo.insertMany(todoCreate, (error, data) => {
+    Todo.insertMany(todoToCreate, (error, data) => {
         if(error) {
             res.send(error);
         } else {
